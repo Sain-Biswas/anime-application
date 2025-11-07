@@ -1,6 +1,9 @@
-import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+
+import tailwindcss from "@tailwindcss/vite";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import react from "@vitejs/plugin-react";
+import { fileURLToPath } from "url";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,6 +13,15 @@ export default defineConfig({
         plugins: [["babel-plugin-react-compiler"]]
       }
     }),
-    tailwindcss()
-  ]
+    tailwindcss(),
+    tanstackRouter({
+      target: "react",
+      autoCodeSplitting: true
+    })
+  ],
+  resolve: {
+    alias: {
+      "~": fileURLToPath(new URL("./src", import.meta.url))
+    }
+  }
 });
