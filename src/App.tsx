@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 
@@ -8,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="flex bg-red-500">
         <a
           rel="noreferrer noopener"
           href="https://vite.dev"
